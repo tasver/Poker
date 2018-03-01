@@ -4,9 +4,17 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'application'
 
+compileJava {
+    sourceCompatibility = '9'
+    targetCompatibility = '9'
+    options.with {
+        fork = true
+        forkOptions.javaHome = new File('C:/Program Files/Java/jdk-9.0.4')
+        compilerArgs.addAll(['--add-exports', 'jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED'])
+    }
+}
 
 
-sourceCompatibility = 9
 
 mainClassName = 'Main'
 
